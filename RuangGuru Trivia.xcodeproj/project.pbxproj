@@ -17,6 +17,14 @@
 		A93D12941FDBD9DB00FBF8D2 /* RuangGuru_TriviaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93D12931FDBD9DB00FBF8D2 /* RuangGuru_TriviaUITests.swift */; };
 		A93D12A61FDBDB4500FBF8D2 /* ViewControllerMainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93D12A51FDBDB4500FBF8D2 /* ViewControllerMainMenu.swift */; };
 		A93D12A81FDBDB5800FBF8D2 /* ViewControllerQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93D12A71FDBDB5800FBF8D2 /* ViewControllerQuestions.swift */; };
+		A93D12AD1FDBE3A600FBF8D2 /* CollectionViewCellTriviaCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93D12AB1FDBE3A600FBF8D2 /* CollectionViewCellTriviaCategory.swift */; };
+		A93D12AE1FDBE3A600FBF8D2 /* CollectionViewCellTriviaCategory.xib in Resources */ = {isa = PBXBuildFile; fileRef = A93D12AC1FDBE3A600FBF8D2 /* CollectionViewCellTriviaCategory.xib */; };
+		A9C3F8611FDC101A00A06272 /* CollectionViewCellAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C3F85F1FDC101A00A06272 /* CollectionViewCellAnswers.swift */; };
+		A9C3F8621FDC101A00A06272 /* CollectionViewCellAnswers.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C3F8601FDC101A00A06272 /* CollectionViewCellAnswers.xib */; };
+		A9C3F8651FDC125200A06272 /* BorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C3F8641FDC125200A06272 /* BorderedView.swift */; };
+		A9C3F8671FDC279F00A06272 /* ControllerMainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C3F8661FDC279F00A06272 /* ControllerMainMenu.swift */; };
+		A9C3F86A1FDC27C800A06272 /* ModelEntityCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C3F8691FDC27C800A06272 /* ModelEntityCategory.swift */; };
+		A9C3F86D1FDC36E000A06272 /* DataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C3F86C1FDC36E000A06272 /* DataConverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +61,14 @@
 		A93D12951FDBD9DB00FBF8D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A93D12A51FDBDB4500FBF8D2 /* ViewControllerMainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMainMenu.swift; sourceTree = "<group>"; };
 		A93D12A71FDBDB5800FBF8D2 /* ViewControllerQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerQuestions.swift; sourceTree = "<group>"; };
+		A93D12AB1FDBE3A600FBF8D2 /* CollectionViewCellTriviaCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellTriviaCategory.swift; sourceTree = "<group>"; };
+		A93D12AC1FDBE3A600FBF8D2 /* CollectionViewCellTriviaCategory.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCellTriviaCategory.xib; sourceTree = "<group>"; };
+		A9C3F85F1FDC101A00A06272 /* CollectionViewCellAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellAnswers.swift; sourceTree = "<group>"; };
+		A9C3F8601FDC101A00A06272 /* CollectionViewCellAnswers.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCellAnswers.xib; sourceTree = "<group>"; };
+		A9C3F8641FDC125200A06272 /* BorderedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedView.swift; sourceTree = "<group>"; };
+		A9C3F8661FDC279F00A06272 /* ControllerMainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerMainMenu.swift; sourceTree = "<group>"; };
+		A9C3F8691FDC27C800A06272 /* ModelEntityCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelEntityCategory.swift; sourceTree = "<group>"; };
+		A9C3F86C1FDC36E000A06272 /* DataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +119,10 @@
 		A93D126F1FDBD9DB00FBF8D2 /* RuangGuru Trivia */ = {
 			isa = PBXGroup;
 			children = (
-				A93D12A91FDBDB6400FBF8D2 /* Storyboar */,
+				A9C3F86B1FDC36C500A06272 /* Utitilities */,
+				A9C3F8631FDC123600A06272 /* CustomView */,
+				A93D12AA1FDBE37A00FBF8D2 /* CollectionViewCell */,
+				A93D12A91FDBDB6400FBF8D2 /* Storyboard */,
 				A93D12A41FDBDAFB00FBF8D2 /* Controller */,
 				A93D12A31FDBDAF600FBF8D2 /* View */,
 				A93D12A11FDBDAE500FBF8D2 /* Model */,
@@ -137,6 +156,7 @@
 		A93D12A11FDBDAE500FBF8D2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A9C3F8681FDC27B800A06272 /* Database */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -144,6 +164,7 @@
 		A93D12A31FDBDAF600FBF8D2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A93D12AF1FDBE3B400FBF8D2 /* CollectionViewCell */,
 				A93D12A51FDBDB4500FBF8D2 /* ViewControllerMainMenu.swift */,
 				A93D12A71FDBDB5800FBF8D2 /* ViewControllerQuestions.swift */,
 			);
@@ -153,17 +174,60 @@
 		A93D12A41FDBDAFB00FBF8D2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A9C3F8661FDC279F00A06272 /* ControllerMainMenu.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		A93D12A91FDBDB6400FBF8D2 /* Storyboar */ = {
+		A93D12A91FDBDB6400FBF8D2 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
 				A93D127C1FDBD9DB00FBF8D2 /* LaunchScreen.storyboard */,
 				A93D12741FDBD9DB00FBF8D2 /* Main.storyboard */,
 			);
-			path = Storyboar;
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		A93D12AA1FDBE37A00FBF8D2 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A93D12AC1FDBE3A600FBF8D2 /* CollectionViewCellTriviaCategory.xib */,
+				A9C3F8601FDC101A00A06272 /* CollectionViewCellAnswers.xib */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		A93D12AF1FDBE3B400FBF8D2 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A93D12AB1FDBE3A600FBF8D2 /* CollectionViewCellTriviaCategory.swift */,
+				A9C3F85F1FDC101A00A06272 /* CollectionViewCellAnswers.swift */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		A9C3F8631FDC123600A06272 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				A9C3F8641FDC125200A06272 /* BorderedView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		A9C3F8681FDC27B800A06272 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				A9C3F8691FDC27C800A06272 /* ModelEntityCategory.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		A9C3F86B1FDC36C500A06272 /* Utitilities */ = {
+			isa = PBXGroup;
+			children = (
+				A9C3F86C1FDC36E000A06272 /* DataConverter.swift */,
+			);
+			path = Utitilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,8 +338,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A93D127E1FDBD9DB00FBF8D2 /* LaunchScreen.storyboard in Resources */,
+				A93D12AE1FDBE3A600FBF8D2 /* CollectionViewCellTriviaCategory.xib in Resources */,
 				A93D127B1FDBD9DB00FBF8D2 /* Assets.xcassets in Resources */,
 				A93D12761FDBD9DB00FBF8D2 /* Main.storyboard in Resources */,
+				A9C3F8621FDC101A00A06272 /* CollectionViewCellAnswers.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,11 +366,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9C3F8611FDC101A00A06272 /* CollectionViewCellAnswers.swift in Sources */,
 				A93D12A81FDBDB5800FBF8D2 /* ViewControllerQuestions.swift in Sources */,
+				A9C3F8671FDC279F00A06272 /* ControllerMainMenu.swift in Sources */,
 				A93D12A61FDBDB4500FBF8D2 /* ViewControllerMainMenu.swift in Sources */,
+				A9C3F86A1FDC27C800A06272 /* ModelEntityCategory.swift in Sources */,
 				A93D12731FDBD9DB00FBF8D2 /* ViewController.swift in Sources */,
+				A93D12AD1FDBE3A600FBF8D2 /* CollectionViewCellTriviaCategory.swift in Sources */,
+				A9C3F86D1FDC36E000A06272 /* DataConverter.swift in Sources */,
 				A93D12711FDBD9DB00FBF8D2 /* AppDelegate.swift in Sources */,
 				A93D12791FDBD9DB00FBF8D2 /* RuangGuru_Trivia.xcdatamodeld in Sources */,
+				A9C3F8651FDC125200A06272 /* BorderedView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
