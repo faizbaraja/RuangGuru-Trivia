@@ -31,6 +31,8 @@ class ViewControllerQuestions: UIViewController,UICollectionViewDataSource,UICol
     var intCurrentIndex:Int = 0
     var indexAnswerSelected = -1
     var intRightAnswer:Int = 0
+    
+    let stringAnswerCorrect = "Correct Answer"
     override func viewDidLoad() {
         super.viewDidLoad()
         controllerQuestions.delegate = self
@@ -66,7 +68,7 @@ class ViewControllerQuestions: UIViewController,UICollectionViewDataSource,UICol
     }
     
     func setConstraintHeightTextView(){
-        constraintHeightTextViewQuestions.constant = textViewQuestion.contentSize.height
+        constraintHeightTextViewQuestions.constant = textViewQuestion.contentSize.height + 10
         self.view.layoutIfNeeded()
     }
     
@@ -153,35 +155,20 @@ class ViewControllerQuestions: UIViewController,UICollectionViewDataSource,UICol
             cell.labelAnswerCorrectness.text = (dictionaryAnswer["answersTriviaCorrectness"] as! String)
             cell.labelAnswerCharacter.text = String(Character(UnicodeScalar(indexPath.row + startingValue)!))
             
-            cell.viewBackground.backgroundColor = UIColor.white
-            cell.labelAnswerCharacter.textColor = UIColor.lightGray
-            cell.labelAnswerCorrectness.textColor = UIColor.lightGray
-            cell.labelAnswerText.textColor = UIColor.lightGray
+            cell.setCellBasicMode()
             
             if (indexPath.row == indexAnswerSelected){
-                cell.labelAnswerCorrectness.isHidden = false
-                if (cell.labelAnswerCorrectness.text == "Correct Answer"){
-                    cell.viewBackground.backgroundColor = UIColorData.getColorCorrectGreen()
-                    cell.labelAnswerCharacter.textColor = UIColorData.getColorCorrectGreen()
+                if (cell.labelAnswerCorrectness.text == stringAnswerCorrect){
+                    cell.setCellCorrectMode()
                 }
                 else{
-                    cell.viewBackground.backgroundColor = UIColorData.getColorInCorrectRed()
-                    cell.labelAnswerCharacter.textColor = UIColorData.getColorInCorrectRed()
+                    cell.setCellInCorrectMode()
                 }
-                cell.labelAnswerCorrectness.textColor = UIColor.white
-                cell.labelAnswerText.textColor = UIColor.white
-            }
-            else{
-                cell.labelAnswerCorrectness.isHidden = true
             }
             
             if (indexAnswerSelected >= 0){
-                if (cell.labelAnswerCorrectness.text == "Correct Answer"){
-                    cell.viewBackground.backgroundColor = UIColorData.getColorCorrectGreen()
-                    cell.labelAnswerCharacter.textColor = UIColorData.getColorCorrectGreen()
-                    cell.labelAnswerCorrectness.textColor = UIColor.white
-                    cell.labelAnswerText.textColor = UIColor.white
-                    cell.labelAnswerCorrectness.isHidden = false
+                if (cell.labelAnswerCorrectness.text == stringAnswerCorrect){
+                    cell.setCellCorrectMode()
                 }
             }
         }
@@ -192,7 +179,7 @@ class ViewControllerQuestions: UIViewController,UICollectionViewDataSource,UICol
         
         if (indexAnswerSelected == -1){
             let dictionaryAnswerSelected:[String:Any] = arrayAnswersData[indexPath.row]
-            if (dictionaryAnswerSelected["answersTriviaCorrectness"] as! String == "Correct Answer"){
+            if (dictionaryAnswerSelected["answersTriviaCorrectness"] as! String == stringAnswerCorrect){
                 intRightAnswer += 1
                 labelRightAnswer.text = "\(intRightAnswer) Right Answer"
             }

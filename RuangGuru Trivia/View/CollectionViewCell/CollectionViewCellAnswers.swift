@@ -24,6 +24,7 @@ class CollectionViewCellAnswers: UICollectionViewCell {
         labelAnswerCharacter.textColor = UIColor.lightGray
         labelAnswerCorrectness.textColor = UIColor.lightGray
         labelAnswerText.textColor = UIColor.lightGray
+        labelAnswerCorrectness.isHidden = true
     }
     
     func setCellCorrectMode(){
@@ -31,6 +32,7 @@ class CollectionViewCellAnswers: UICollectionViewCell {
         labelAnswerCharacter.textColor = UIColorData.getColorCorrectGreen()
         labelAnswerCorrectness.textColor = UIColor.white
         labelAnswerText.textColor = UIColor.white
+        labelAnswerCorrectness.isHidden = false
     }
     
     func setCellInCorrectMode(){
@@ -38,6 +40,7 @@ class CollectionViewCellAnswers: UICollectionViewCell {
         labelAnswerCharacter.textColor = UIColorData.getColorInCorrectRed()
         labelAnswerCorrectness.textColor = UIColor.white
         labelAnswerText.textColor = UIColor.white
+        labelAnswerCorrectness.isHidden = false
     }
 
 }

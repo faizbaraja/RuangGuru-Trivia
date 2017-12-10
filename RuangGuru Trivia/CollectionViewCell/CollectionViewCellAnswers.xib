@@ -41,14 +41,14 @@
                                     <constraint firstAttribute="bottom" secondItem="e0M-UQ-CGL" secondAttribute="bottom" id="mcT-MG-pkr"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZX8-ha-Vok">
-                                <rect key="frame" x="79" y="40" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZX8-ha-Vok">
+                                <rect key="frame" x="8" y="40" width="184" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correct Answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QnM-eQ-0v5">
-                                <rect key="frame" x="56" y="69" width="88" height="14.5"/>
+                                <rect key="frame" x="56" y="63" width="88" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -56,12 +56,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ZX8-ha-Vok" firstAttribute="leading" secondItem="e8n-o7-hOn" secondAttribute="leading" id="0pl-rF-qon"/>
                             <constraint firstItem="QnM-eQ-0v5" firstAttribute="centerX" secondItem="j2z-Bn-4PG" secondAttribute="centerX" id="CXp-ih-8I4"/>
-                            <constraint firstItem="ZX8-ha-Vok" firstAttribute="centerX" secondItem="j2z-Bn-4PG" secondAttribute="centerX" id="MnO-of-o4c"/>
-                            <constraint firstItem="ZX8-ha-Vok" firstAttribute="centerY" secondItem="j2z-Bn-4PG" secondAttribute="centerY" id="On2-kb-2TM"/>
+                            <constraint firstAttribute="trailing" secondItem="ZX8-ha-Vok" secondAttribute="trailing" constant="8" id="OFz-2Y-N8a"/>
                             <constraint firstItem="e8n-o7-hOn" firstAttribute="top" secondItem="j2z-Bn-4PG" secondAttribute="top" constant="8" id="SRk-uR-ouO"/>
                             <constraint firstItem="e8n-o7-hOn" firstAttribute="leading" secondItem="j2z-Bn-4PG" secondAttribute="leading" constant="8" id="Xf6-s7-HUo"/>
-                            <constraint firstItem="QnM-eQ-0v5" firstAttribute="top" secondItem="ZX8-ha-Vok" secondAttribute="bottom" constant="8" id="sB8-3a-sIV"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="QnM-eQ-0v5" secondAttribute="bottom" id="pKF-OT-20n"/>
+                            <constraint firstItem="QnM-eQ-0v5" firstAttribute="top" secondItem="ZX8-ha-Vok" secondAttribute="bottom" constant="2" id="sB8-3a-sIV"/>
+                            <constraint firstItem="ZX8-ha-Vok" firstAttribute="top" secondItem="e8n-o7-hOn" secondAttribute="bottom" constant="2" id="shS-KS-zwV"/>
                         </constraints>
                     </view>
                 </subviews>
