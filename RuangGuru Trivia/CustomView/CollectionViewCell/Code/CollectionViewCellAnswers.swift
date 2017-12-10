@@ -22,8 +22,8 @@ class CollectionViewCellAnswers: UICollectionViewCell {
     func setCellBasicMode(){
         viewBackground.backgroundColor = UIColor.white
         labelAnswerCharacter.textColor = UIColor.lightGray
-        labelAnswerCorrectness.textColor = UIColor.lightGray
-        labelAnswerText.textColor = UIColor.lightGray
+        labelAnswerCorrectness.textColor = UIColor.black
+        labelAnswerText.textColor = UIColor.black
         labelAnswerCorrectness.isHidden = true
     }
     

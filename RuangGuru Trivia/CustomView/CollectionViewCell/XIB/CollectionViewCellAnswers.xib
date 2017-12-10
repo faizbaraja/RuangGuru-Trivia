@@ -21,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j2z-Bn-4PG" customClass="BorderedView" customModule="RuangGuru_Trivia" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8n-o7-hOn" customClass="BorderedView" customModule="RuangGuru_Trivia" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8n-o7-hOn" customClass="BorderedCharacterAnswerOptionsView" customModule="RuangGuru_Trivia" customModuleProvider="target">
                                 <rect key="frame" x="8" y="8" width="40" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0M-UQ-CGL">

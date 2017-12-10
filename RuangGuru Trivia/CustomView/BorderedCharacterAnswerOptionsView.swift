@@ -1,14 +1,14 @@
 //
-//  BorderedView.swift
+//  BorderedCharacterAnswerOptionsView.swift
 //  RuangGuru Trivia
 //
-//  Created by Faiz Umar Baraja on 09/12/2017.
+//  Created by Faiz Umar Baraja on 11/12/2017.
 //  Copyright © 2017 FaizBarajaApps. All rights reserved.
 //
 
 import UIKit
 
-class BorderedView: UIView {
+class BorderedCharacterAnswerOptionsView: UIView {
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -18,9 +18,9 @@ class BorderedView: UIView {
     }
     */
     override func layoutSubviews() {
-        let borderColor = UIColor.black
+        let borderColor = UIColor.lightGray
         self.layer.borderColor = borderColor.cgColor
         self.layer.borderWidth = 1.0
-        self.layer.cornerRadius = self.frame.size.width / 6
+        self.layer.cornerRadius = self.frame.size.width / 4
     }
 }
