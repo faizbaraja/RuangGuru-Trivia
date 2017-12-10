@@ -10,7 +10,9 @@ import UIKit
 import CoreData
 class ControllerMainMenu: NSObject {
     let modelEntityCategoryTrivia:ModelEntityCategoryTrivia = ModelEntityCategoryTrivia()
+    let modelCategoryDataState:ModelCategoryDataState = ModelCategoryDataState()
     let dataConverter:DataConverter = DataConverter()
+    
     func createCategoryAndSaveToDB(){
         if (self.getAllCategoryData().count <= 0){
             let categoryImage:[String] = ["GeneralKnowledgeMask","EntertainmentBooksMask","EntertainmentFilmMask","EntertainmentMusicMask","EntertainmentGamesMask","EntertainmentTVMask","ScienceComputersMask","CelebritiesMask","HistoryMask","AnimalMask"]
@@ -26,9 +28,8 @@ class ControllerMainMenu: NSObject {
                 dictDataCategory["categoryText"] = categoryText[indexPosition] as String
                 dictDataCategory["categoryID"] = categoryID[indexPosition] as Int
                 
-                modelEntityCategoryTrivia.saveCategoryData(dictContactData: dictDataCategory)
-            }
-            
+                modelEntityCategoryTrivia.saveCategoryData(dictCategoryData: dictDataCategory)
+            }            
         }
     }
     
@@ -39,4 +40,17 @@ class ControllerMainMenu: NSObject {
     func getAllCategoryDataAsArray() -> [[String:Any]] {
         return dataConverter.convertCategoryFromCoreDataManagedObjectToSwiftArray(coreDataObject: modelEntityCategoryTrivia.getAllCategoryTriviaData())
     }
+    
+    func setCategoryDataState(dictionaryData:[String:Any]){
+        modelCategoryDataState.setCategoryDataState(dictionaryData: dictionaryData)
+    }
+    
+    func getDataState()->[String:Any]{
+        return modelCategoryDataState.getDataState()
+    }
+    
+    func getDataStateModel()->ModelCategoryDataState{
+        return modelCategoryDataState
+    }
+    
 }

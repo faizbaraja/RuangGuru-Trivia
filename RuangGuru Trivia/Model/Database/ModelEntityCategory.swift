@@ -10,8 +10,8 @@ import UIKit
 import CoreData
 
 class ModelEntityCategoryTrivia: NSObject {
-    func saveCategoryData(dictContactData: [String:Any]) {
-        var contactObject: [NSManagedObject] = []
+    func saveCategoryData(dictCategoryData: [String:Any]) {
+        var categoryObject: [NSManagedObject] = []
         guard let appDelegate =
             UIApplication.shared.delegate as? AppDelegate else {
                 return
@@ -23,18 +23,18 @@ class ModelEntityCategoryTrivia: NSObject {
         // 2
         let entity = NSEntityDescription.entity(forEntityName: "CategoryTrivia", in: managedContext)!
         
-        let contactEntity = NSManagedObject(entity: entity, insertInto: managedContext)
+        let categoryEntity = NSManagedObject(entity: entity, insertInto: managedContext)
         
         // 3
-        contactEntity.setValue(dictContactData["categoryIcon"], forKeyPath: "categoryIcon")
-        contactEntity.setValue(dictContactData["categoryImage"], forKeyPath: "categoryImage")
-        contactEntity.setValue(dictContactData["categoryText"], forKeyPath: "categoryText")
-        contactEntity.setValue(dictContactData["categoryID"], forKeyPath: "categoryID")
+        categoryEntity.setValue(dictCategoryData["categoryIcon"], forKeyPath: "categoryIcon")
+        categoryEntity.setValue(dictCategoryData["categoryImage"], forKeyPath: "categoryImage")
+        categoryEntity.setValue(dictCategoryData["categoryText"], forKeyPath: "categoryText")
+        categoryEntity.setValue(dictCategoryData["categoryID"], forKeyPath: "categoryID")
         
         // 4
         do {
             try managedContext.save()
-            contactObject.append(contactEntity)
+            categoryObject.append(categoryEntity)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
@@ -59,10 +59,10 @@ class ModelEntityCategoryTrivia: NSObject {
     }
     
     func getAllCategoryTriviaData() -> [NSManagedObject]{
-        var contactObject: [NSManagedObject] = []
+        var categoryObject: [NSManagedObject] = []
         guard let appDelegate =
             UIApplication.shared.delegate as? AppDelegate else {
-                return contactObject
+                return categoryObject
         }
         
         // 1
@@ -73,11 +73,11 @@ class ModelEntityCategoryTrivia: NSObject {
         
         //3
         do {
-            contactObject = try managedContext.fetch(fetchRequest)
+            categoryObject = try managedContext.fetch(fetchRequest)
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
-            return contactObject
+            return categoryObject
         }
-        return contactObject
+        return categoryObject
     }
 }

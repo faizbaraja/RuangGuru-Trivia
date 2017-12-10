@@ -19,6 +19,11 @@
 		A93D12A81FDBDB5800FBF8D2 /* ViewControllerQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93D12A71FDBDB5800FBF8D2 /* ViewControllerQuestions.swift */; };
 		A93D12AD1FDBE3A600FBF8D2 /* CollectionViewCellTriviaCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93D12AB1FDBE3A600FBF8D2 /* CollectionViewCellTriviaCategory.swift */; };
 		A93D12AE1FDBE3A600FBF8D2 /* CollectionViewCellTriviaCategory.xib in Resources */ = {isa = PBXBuildFile; fileRef = A93D12AC1FDBE3A600FBF8D2 /* CollectionViewCellTriviaCategory.xib */; };
+		A977502B1FDCAC2300D53C04 /* ControllerQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A977502A1FDCAC2300D53C04 /* ControllerQuestions.swift */; };
+		A977502E1FDCAD5600D53C04 /* ModelWebServiceCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A977502D1FDCAD5600D53C04 /* ModelWebServiceCall.swift */; };
+		A97750311FDCAF1400D53C04 /* ModelCategoryDataState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97750301FDCAF1400D53C04 /* ModelCategoryDataState.swift */; };
+		A97750331FDCCD0C00D53C04 /* ModelEntityQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97750321FDCCD0C00D53C04 /* ModelEntityQuestion.swift */; };
+		A97750351FDCCD1C00D53C04 /* ModelEntityAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97750341FDCCD1C00D53C04 /* ModelEntityAnswer.swift */; };
 		A9C3F8611FDC101A00A06272 /* CollectionViewCellAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C3F85F1FDC101A00A06272 /* CollectionViewCellAnswers.swift */; };
 		A9C3F8621FDC101A00A06272 /* CollectionViewCellAnswers.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C3F8601FDC101A00A06272 /* CollectionViewCellAnswers.xib */; };
 		A9C3F8651FDC125200A06272 /* BorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C3F8641FDC125200A06272 /* BorderedView.swift */; };
@@ -63,6 +68,11 @@
 		A93D12A71FDBDB5800FBF8D2 /* ViewControllerQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerQuestions.swift; sourceTree = "<group>"; };
 		A93D12AB1FDBE3A600FBF8D2 /* CollectionViewCellTriviaCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellTriviaCategory.swift; sourceTree = "<group>"; };
 		A93D12AC1FDBE3A600FBF8D2 /* CollectionViewCellTriviaCategory.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCellTriviaCategory.xib; sourceTree = "<group>"; };
+		A977502A1FDCAC2300D53C04 /* ControllerQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerQuestions.swift; sourceTree = "<group>"; };
+		A977502D1FDCAD5600D53C04 /* ModelWebServiceCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelWebServiceCall.swift; sourceTree = "<group>"; };
+		A97750301FDCAF1400D53C04 /* ModelCategoryDataState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCategoryDataState.swift; sourceTree = "<group>"; };
+		A97750321FDCCD0C00D53C04 /* ModelEntityQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelEntityQuestion.swift; sourceTree = "<group>"; };
+		A97750341FDCCD1C00D53C04 /* ModelEntityAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelEntityAnswer.swift; sourceTree = "<group>"; };
 		A9C3F85F1FDC101A00A06272 /* CollectionViewCellAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellAnswers.swift; sourceTree = "<group>"; };
 		A9C3F8601FDC101A00A06272 /* CollectionViewCellAnswers.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCellAnswers.xib; sourceTree = "<group>"; };
 		A9C3F8641FDC125200A06272 /* BorderedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedView.swift; sourceTree = "<group>"; };
@@ -156,6 +166,8 @@
 		A93D12A11FDBDAE500FBF8D2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A977502F1FDCAEE500D53C04 /* DataState */,
+				A977502C1FDCAC3200D53C04 /* API */,
 				A9C3F8681FDC27B800A06272 /* Database */,
 			);
 			path = Model;
@@ -175,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				A9C3F8661FDC279F00A06272 /* ControllerMainMenu.swift */,
+				A977502A1FDCAC2300D53C04 /* ControllerQuestions.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -206,6 +219,22 @@
 			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
+		A977502C1FDCAC3200D53C04 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A977502D1FDCAD5600D53C04 /* ModelWebServiceCall.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		A977502F1FDCAEE500D53C04 /* DataState */ = {
+			isa = PBXGroup;
+			children = (
+				A97750301FDCAF1400D53C04 /* ModelCategoryDataState.swift */,
+			);
+			path = DataState;
+			sourceTree = "<group>";
+		};
 		A9C3F8631FDC123600A06272 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +247,8 @@
 			isa = PBXGroup;
 			children = (
 				A9C3F8691FDC27C800A06272 /* ModelEntityCategory.swift */,
+				A97750321FDCCD0C00D53C04 /* ModelEntityQuestion.swift */,
+				A97750341FDCCD1C00D53C04 /* ModelEntityAnswer.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -366,10 +397,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A97750351FDCCD1C00D53C04 /* ModelEntityAnswer.swift in Sources */,
 				A9C3F8611FDC101A00A06272 /* CollectionViewCellAnswers.swift in Sources */,
 				A93D12A81FDBDB5800FBF8D2 /* ViewControllerQuestions.swift in Sources */,
 				A9C3F8671FDC279F00A06272 /* ControllerMainMenu.swift in Sources */,
+				A977502E1FDCAD5600D53C04 /* ModelWebServiceCall.swift in Sources */,
 				A93D12A61FDBDB4500FBF8D2 /* ViewControllerMainMenu.swift in Sources */,
+				A97750331FDCCD0C00D53C04 /* ModelEntityQuestion.swift in Sources */,
 				A9C3F86A1FDC27C800A06272 /* ModelEntityCategory.swift in Sources */,
 				A93D12731FDBD9DB00FBF8D2 /* ViewController.swift in Sources */,
 				A93D12AD1FDBE3A600FBF8D2 /* CollectionViewCellTriviaCategory.swift in Sources */,
@@ -377,6 +411,8 @@
 				A93D12711FDBD9DB00FBF8D2 /* AppDelegate.swift in Sources */,
 				A93D12791FDBD9DB00FBF8D2 /* RuangGuru_Trivia.xcdatamodeld in Sources */,
 				A9C3F8651FDC125200A06272 /* BorderedView.swift in Sources */,
+				A977502B1FDCAC2300D53C04 /* ControllerQuestions.swift in Sources */,
+				A97750311FDCAF1400D53C04 /* ModelCategoryDataState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

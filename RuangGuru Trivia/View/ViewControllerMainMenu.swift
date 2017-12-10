@@ -14,8 +14,10 @@ class ViewControllerMainMenu: UIViewController,UICollectionViewDataSource,UIColl
     @IBOutlet var collectionViewTriviaCategoryFlowLayout:UICollectionViewFlowLayout!
     
     let controllerMainMenu:ControllerMainMenu = ControllerMainMenu()
-
+    
     var arrayDataCategory = [[String:Any]]()
+    var dictionarySelectedCategory:[String:Any] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionViewTriviaCategory.register(UINib(nibName:"CollectionViewCellTriviaCategory", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCellCategory")
@@ -46,6 +48,15 @@ class ViewControllerMainMenu: UIViewController,UICollectionViewDataSource,UIColl
         // Dispose of any resources that can be recreated.
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowQuestionVC" {
+            let viewControllerNextScene =  segue.destination as! ViewControllerQuestions
+            controllerMainMenu.setCategoryDataState(dictionaryData: dictionarySelectedCategory)
+            viewControllerNextScene.navigationItem.title = (dictionarySelectedCategory["categoryText"] as! String)
+            viewControllerNextScene.setDataStateModel(dataStateModel: controllerMainMenu.getDataStateModel())
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrayDataCategory.count
@@ -84,6 +95,7 @@ class ViewControllerMainMenu: UIViewController,UICollectionViewDataSource,UIColl
     // MARK: - UICollectionViewDelegate protocol
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        dictionarySelectedCategory = arrayDataCategory[indexPath.row]
         self.performSegue(withIdentifier: "ShowQuestionVC", sender: nil)
     }
     /*

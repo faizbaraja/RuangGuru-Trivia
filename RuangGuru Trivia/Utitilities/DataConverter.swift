@@ -11,7 +11,7 @@ import CoreData
 class DataConverter: NSObject {
 
     func convertCategoryFromCoreDataManagedObjectToSwiftArray(coreDataObject : [NSManagedObject])->[[String:Any]]{
-        var arrayData:[[String:Any]] = [[:]]
+        var arrayData = [[String:Any]]()
         for managedObject in coreDataObject {
             let indexData:Int = coreDataObject.index(of: managedObject)!
             var dictData:[String:Any] = [:]

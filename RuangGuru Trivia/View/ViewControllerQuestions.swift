@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewControllerQuestions: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+    let controllerQuestions:ControllerQuestions = ControllerQuestions()
     @IBOutlet var textViewQuestion:UITextView!
     @IBOutlet var collectionViewAnswers:UICollectionView!
     @IBOutlet var stackViewQuestionAnswer:UIStackView!
@@ -32,6 +33,8 @@ class ViewControllerQuestions: UIViewController,UICollectionViewDataSource,UICol
     override func viewDidAppear(_ animated: Bool) {
         self.setConstraintHeightTextView()
         self.setConstraintHeightCollectionView()
+        //print(controllerQuestions.getDataState())
+        controllerQuestions.getQuestionsDataFromServer()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -52,6 +55,10 @@ class ViewControllerQuestions: UIViewController,UICollectionViewDataSource,UICol
     func setConstraintHeightCollectionView(){
         constraintHeightCollectionViewQuestions.constant = collectionViewAnswers.contentSize.height
         self.view.layoutIfNeeded()
+    }
+    
+    func setDataStateModel(dataStateModel:ModelCategoryDataState){
+        controllerQuestions.setDataStateModel(dataStateModel: dataStateModel)
     }
     
     override func didReceiveMemoryWarning() {
