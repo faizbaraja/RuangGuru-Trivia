@@ -9,7 +9,11 @@
 import UIKit
 
 class CollectionViewCellAnswers: UICollectionViewCell {
-
+    @IBOutlet var labelAnswerText:UILabel!
+    @IBOutlet var labelAnswerCorrectness:UILabel!
+    @IBOutlet var labelAnswerCharacter:UILabel!
+    @IBOutlet var viewBackground:BorderedView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

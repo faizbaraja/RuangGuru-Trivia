@@ -121,6 +121,9 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="actionNextGameWithSender:" destination="k7R-m9-ccZ" eventType="touchUpInside" id="nY3-w2-5Yx"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvs-7i-6rC">
                                 <rect key="frame" x="0.0" y="114" width="375" height="513"/>
@@ -196,9 +199,12 @@
                         <viewLayoutGuide key="safeArea" id="VHA-3q-Hov"/>
                     </view>
                     <connections>
+                        <outlet property="buttonNext" destination="awf-JX-qX5" id="4Le-Fk-ucR"/>
                         <outlet property="collectionViewAnswers" destination="nrn-93-mzd" id="dB7-1T-4hT"/>
                         <outlet property="constraintHeightCollectionViewQuestions" destination="eoo-fT-0SJ" id="Oec-7W-Lci"/>
                         <outlet property="constraintHeightTextViewQuestions" destination="5wL-nW-kWl" id="m5l-2N-yJ5"/>
+                        <outlet property="labelQuestionNumber" destination="N1C-k6-wo8" id="PJl-w6-6ie"/>
+                        <outlet property="labelRightAnswer" destination="fzY-OA-yoH" id="Cff-b8-giF"/>
                         <outlet property="scrollViewQuestionAnswer" destination="dvs-7i-6rC" id="72G-Qh-X0b"/>
                         <outlet property="stackViewQuestionAnswer" destination="MhZ-Ye-h6C" id="2JI-tf-a51"/>
                         <outlet property="textViewQuestion" destination="vnj-Ie-gvY" id="bZJ-U4-ecI"/>

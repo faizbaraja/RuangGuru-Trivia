@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewControllerMainMenu: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+    let modelEntityQuestion:ModelEntityQuestion = ModelEntityQuestion()
+    let modelEntityAnswer:ModelEntityAnswer = ModelEntityAnswer()
     
     @IBOutlet var collectionViewTriviaCategory:UICollectionView!
     @IBOutlet var collectionViewTriviaCategoryFlowLayout:UICollectionViewFlowLayout!

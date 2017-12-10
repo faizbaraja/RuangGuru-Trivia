@@ -30,6 +30,8 @@
 		A9C3F8671FDC279F00A06272 /* ControllerMainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C3F8661FDC279F00A06272 /* ControllerMainMenu.swift */; };
 		A9C3F86A1FDC27C800A06272 /* ModelEntityCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C3F8691FDC27C800A06272 /* ModelEntityCategory.swift */; };
 		A9C3F86D1FDC36E000A06272 /* DataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C3F86C1FDC36E000A06272 /* DataConverter.swift */; };
+		A9E676CC1FDD125F0078FC5F /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E676CB1FDD125F0078FC5F /* CustomAlertView.swift */; };
+		A9E676CE1FDD382B0078FC5F /* UIColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E676CD1FDD382B0078FC5F /* UIColorData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		A9C3F8661FDC279F00A06272 /* ControllerMainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerMainMenu.swift; sourceTree = "<group>"; };
 		A9C3F8691FDC27C800A06272 /* ModelEntityCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelEntityCategory.swift; sourceTree = "<group>"; };
 		A9C3F86C1FDC36E000A06272 /* DataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConverter.swift; sourceTree = "<group>"; };
+		A9E676CB1FDD125F0078FC5F /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		A9E676CD1FDD382B0078FC5F /* UIColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +133,8 @@
 		A93D126F1FDBD9DB00FBF8D2 /* RuangGuru Trivia */ = {
 			isa = PBXGroup;
 			children = (
-				A9C3F86B1FDC36C500A06272 /* Utitilities */,
+				A9E676CA1FDD12080078FC5F /* AlertView */,
+				A9C3F86B1FDC36C500A06272 /* Library */,
 				A9C3F8631FDC123600A06272 /* CustomView */,
 				A93D12AA1FDBE37A00FBF8D2 /* CollectionViewCell */,
 				A93D12A91FDBDB6400FBF8D2 /* Storyboard */,
@@ -253,12 +258,21 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
-		A9C3F86B1FDC36C500A06272 /* Utitilities */ = {
+		A9C3F86B1FDC36C500A06272 /* Library */ = {
 			isa = PBXGroup;
 			children = (
 				A9C3F86C1FDC36E000A06272 /* DataConverter.swift */,
+				A9E676CD1FDD382B0078FC5F /* UIColorData.swift */,
 			);
-			path = Utitilities;
+			path = Library;
+			sourceTree = "<group>";
+		};
+		A9E676CA1FDD12080078FC5F /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				A9E676CB1FDD125F0078FC5F /* CustomAlertView.swift */,
+			);
+			path = AlertView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,6 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9E676CC1FDD125F0078FC5F /* CustomAlertView.swift in Sources */,
 				A97750351FDCCD1C00D53C04 /* ModelEntityAnswer.swift in Sources */,
 				A9C3F8611FDC101A00A06272 /* CollectionViewCellAnswers.swift in Sources */,
 				A93D12A81FDBDB5800FBF8D2 /* ViewControllerQuestions.swift in Sources */,
@@ -409,6 +424,7 @@
 				A93D12AD1FDBE3A600FBF8D2 /* CollectionViewCellTriviaCategory.swift in Sources */,
 				A9C3F86D1FDC36E000A06272 /* DataConverter.swift in Sources */,
 				A93D12711FDBD9DB00FBF8D2 /* AppDelegate.swift in Sources */,
+				A9E676CE1FDD382B0078FC5F /* UIColorData.swift in Sources */,
 				A93D12791FDBD9DB00FBF8D2 /* RuangGuru_Trivia.xcdatamodeld in Sources */,
 				A9C3F8651FDC125200A06272 /* BorderedView.swift in Sources */,
 				A977502B1FDCAC2300D53C04 /* ControllerQuestions.swift in Sources */,

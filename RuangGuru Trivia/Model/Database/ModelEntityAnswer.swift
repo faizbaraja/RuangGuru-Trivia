@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 class ModelEntityAnswer: NSObject {
+    let stringTableConstant = "AnswersTrivia"
     func saveAnswerData(dictanswerData: [String:Any]) {
         var answerObject: [NSManagedObject] = []
         guard let appDelegate =
@@ -20,7 +21,7 @@ class ModelEntityAnswer: NSObject {
         let managedContext = appDelegate.persistentContainer.viewContext
         
         // 2
-        let entity = NSEntityDescription.entity(forEntityName: "AnswersTrivia", in: managedContext)!
+        let entity = NSEntityDescription.entity(forEntityName: stringTableConstant, in: managedContext)!
         
         let answerEntity = NSManagedObject(entity: entity, insertInto: managedContext)
         
@@ -45,7 +46,7 @@ class ModelEntityAnswer: NSObject {
         }
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "AnswersTrivia")
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: stringTableConstant)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
         
         do {
@@ -56,4 +57,22 @@ class ModelEntityAnswer: NSObject {
         }
     }
 
+    func getAnswersDataByQuestion(questionID:Int)->[NSManagedObject] {
+        var questions:[NSManagedObject] = []
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return questions
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: stringTableConstant)
+        let predicate = NSPredicate(format: "questionTriviaID == %i", questionID)
+        fetchRequest.predicate = predicate
+        
+        do {
+            questions = try managedContext.fetch(fetchRequest) as! [NSManagedObject]
+        }
+        catch _ {
+        }
+        return questions
+    }
 }

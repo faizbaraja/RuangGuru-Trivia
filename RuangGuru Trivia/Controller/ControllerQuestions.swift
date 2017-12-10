@@ -7,8 +7,17 @@
 //
 
 import UIKit
+import CoreData
+
+protocol ControllerQuestionsDelegate {
+    func dataLoadAndSaveCompleted()
+    func showAlertTimeOut()
+}
 
 class ControllerQuestions: NSObject,WebServiceReturnDelegate{
+    let dataConverter:DataConverter = DataConverter()
+    var delegate:ControllerQuestionsDelegate?
+    
     var modelCategoryDataState:ModelCategoryDataState!
     let modelWebServiceCall:ModelWebServiceCall = ModelWebServiceCall()
     let modelEntityQuestions:ModelEntityQuestion = ModelEntityQuestion()
@@ -19,6 +28,25 @@ class ControllerQuestions: NSObject,WebServiceReturnDelegate{
     let stringTriviaDifficulity = "easy"
     
     let stringBaseURL = "https://opentdb.com/api.php?"
+    
+    var arrayQuestionsData:[[String:Any]]=[[:]]
+    func constructDataQuestions(){
+        if (self.getQuestionsDataByCategoryID().count <= 0){
+            self.getQuestionsDataFromServer()
+        }
+        else{
+            delegate?.dataLoadAndSaveCompleted()
+        }
+    }
+    
+    func getQuestionsDataByCategoryID()->[[String:Any]]{
+        arrayQuestionsData = dataConverter.convertQuestionFromCoreDataManagedObjectToSwiftArray(coreDataObject: modelEntityQuestions.getQuestionDataByCategory(categoryID: self.getDataState()["categoryID"] as! Int))
+        return arrayQuestionsData
+    }
+    
+    func getAnswersDataByCategoryID(questionSelectedID:Int)->[[String:Any]]{
+        return dataConverter.convertAnswersFromCoreDataManagedObjectToSwiftArray(coreDataObject: modelEntityAnswers.getAnswersDataByQuestion(questionID:questionSelectedID))
+    }
     
     func getQuestionsDataFromServer (){
         let stringTriviaCategoryID = self.getDataState()["categoryID"]
@@ -40,8 +68,8 @@ class ControllerQuestions: NSObject,WebServiceReturnDelegate{
             let stringCategoryID:Int = self.getDataState()["categoryID"] as! Int
             let arrayDataResult:[[String:Any]] = dictionaryData["results"] as! [[String:Any]]
         
-            let intMaxQuestionID:Int = self.modelEntityQuestions.fetchMaxQuestionID()
             for (index, _) in arrayDataResult.enumerated(){
+                let intMaxQuestionID:Int = self.modelEntityQuestions.fetchMaxQuestionID()
                 var dictDataQuestions:[String:Any] = [:]
                 var dictDataAnswer:[String:Any] = [:]
                 let stringQuestion = arrayDataResult[index]["question"] as! String
@@ -68,9 +96,10 @@ class ControllerQuestions: NSObject,WebServiceReturnDelegate{
                     dictDataAnswer["answersTriviaCorrectness"] = "Incorrect Answer"
                     dictDataAnswer["questionTriviaID"] = intMaxQuestionID
                     //save incorrect answer
+                    self.modelEntityAnswers.saveAnswerData(dictanswerData: dictDataAnswer)
                 }
             }
-        
+        delegate?.dataLoadAndSaveCompleted()
     }
     
     func jsonData(_ dataFromServer:Any){
@@ -78,5 +107,13 @@ class ControllerQuestions: NSObject,WebServiceReturnDelegate{
         if (dictionaryData["response_code"] as! Int == 0){
             self.saveQuestionAndAnswersTriviaToDatabase(dictDataQuestionAnswer: dictionaryData)
         }
+        else{
+            delegate?.dataLoadAndSaveCompleted()
+        }
     }
+    
+    func serverReachedTimeOut(){
+        delegate?.showAlertTimeOut()
+    }
+    
 }

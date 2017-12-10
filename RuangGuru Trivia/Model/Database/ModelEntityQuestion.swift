@@ -64,6 +64,25 @@ class ModelEntityQuestion: NSObject {
         return intMaxQuestionID
     }
     
+    func getQuestionDataByCategory(categoryID:Int)->[NSManagedObject] {
+        var questions:[NSManagedObject] = []
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return questions
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: stringTableConstant)
+        let predicate = NSPredicate(format: "categoryTriviaID == %i", categoryID)
+        fetchRequest.predicate = predicate
+        
+        do {
+            questions = try managedContext.fetch(fetchRequest) as! [NSManagedObject]
+        }
+        catch _ {
+        }
+        return questions
+    }
+    
     func deleteAllQuestionTriviaRecords() {
         guard let appDelegate =
             UIApplication.shared.delegate as? AppDelegate else {

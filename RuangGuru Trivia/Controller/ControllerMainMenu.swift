@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+
 class ControllerMainMenu: NSObject {
     let modelEntityCategoryTrivia:ModelEntityCategoryTrivia = ModelEntityCategoryTrivia()
     let modelCategoryDataState:ModelCategoryDataState = ModelCategoryDataState()

@@ -9,6 +9,7 @@
 import UIKit
 protocol WebServiceReturnDelegate {
     func jsonData(_ dataFromServer:Any)
+    func serverReachedTimeOut()
 }
 
 class ModelWebServiceCall: NSObject,URLSessionDelegate {
@@ -28,6 +29,9 @@ class ModelWebServiceCall: NSObject,URLSessionDelegate {
             _ = sessionAPI.dataTask(with: request) { (data, response, error) in
                 if error != nil {
                     print(error!.localizedDescription)
+                    DispatchQueue.main.async{
+                        self.delegate?.serverReachedTimeOut()
+                    }
                 }
                 else{
                     if let dataReturn = data {
