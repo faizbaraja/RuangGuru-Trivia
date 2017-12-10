@@ -18,5 +18,26 @@ class CollectionViewCellAnswers: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func setCellBasicMode(){
+        viewBackground.backgroundColor = UIColor.white
+        labelAnswerCharacter.textColor = UIColor.lightGray
+        labelAnswerCorrectness.textColor = UIColor.lightGray
+        labelAnswerText.textColor = UIColor.lightGray
+    }
+    
+    func setCellCorrectMode(){
+        viewBackground.backgroundColor = UIColorData.getColorCorrectGreen()
+        labelAnswerCharacter.textColor = UIColorData.getColorCorrectGreen()
+        labelAnswerCorrectness.textColor = UIColor.white
+        labelAnswerText.textColor = UIColor.white
+    }
+    
+    func setCellInCorrectMode(){
+        viewBackground.backgroundColor = UIColorData.getColorInCorrectRed()
+        labelAnswerCharacter.textColor = UIColorData.getColorInCorrectRed()
+        labelAnswerCorrectness.textColor = UIColor.white
+        labelAnswerText.textColor = UIColor.white
+    }
 
 }

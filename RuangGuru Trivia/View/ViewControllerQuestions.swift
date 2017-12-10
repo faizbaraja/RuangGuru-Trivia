@@ -28,8 +28,9 @@ class ViewControllerQuestions: UIViewController,UICollectionViewDataSource,UICol
     var alertLoadingData:UIAlertController = UIAlertController()
     var arrayQuestionsData:[[String:Any]]!
     var arrayAnswersData:[[String:Any]] = []
-    var currentIndex:Int = 0
+    var intCurrentIndex:Int = 0
     var indexAnswerSelected = -1
+    var intRightAnswer:Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         controllerQuestions.delegate = self
@@ -84,13 +85,14 @@ class ViewControllerQuestions: UIViewController,UICollectionViewDataSource,UICol
     }
     
     func loadDataQuestions(){
-        currentIndex = 0
+        intCurrentIndex = 0
+        intRightAnswer = 0
         arrayQuestionsData = controllerQuestions.getQuestionsDataByCategoryID()
-        
-        self.showTriviaQuestionAndAnswers(questionNumber: currentIndex)
+        self.showTriviaQuestionAndAnswers(questionNumber: intCurrentIndex)
     }
     
     func showTriviaQuestionAndAnswers(questionNumber:Int){
+        buttonNext.isHidden = true
         if (questionNumber < arrayQuestionsData.count){
             indexAnswerSelected = -1
             let dictionaryCurrentQuestion:[String:Any] = arrayQuestionsData[questionNumber]
@@ -98,21 +100,22 @@ class ViewControllerQuestions: UIViewController,UICollectionViewDataSource,UICol
             arrayAnswersData = controllerQuestions.getAnswersDataByCategoryID(questionSelectedID: questionID)
         
             labelQuestionNumber.text = "Question No. \(questionNumber + 1)"
+            labelRightAnswer.text = "\(intRightAnswer) Right Answer"
             textViewQuestion.text = dictionaryCurrentQuestion["triviaQuestionText"] as! String
             collectionViewAnswers.reloadData()
         
             self.setConstraintHeightTextView()
             self.setConstraintHeightCollectionView()
-        }
-        else{
-            buttonNext.setTitle("Finish", for: .normal)
+            if (questionNumber == arrayQuestionsData.count - 1){
+                buttonNext.setTitle("Finish", for: .normal)
+            }
         }
     }
     
     @IBAction func actionNextGame(sender:UIButton){
-        currentIndex += 1
-        if (currentIndex < arrayQuestionsData.count){
-            self.showTriviaQuestionAndAnswers(questionNumber: currentIndex)
+        intCurrentIndex += 1
+        if (intCurrentIndex < arrayQuestionsData.count){
+            self.showTriviaQuestionAndAnswers(questionNumber: intCurrentIndex)
         }
         else{
             self.navigationController?.popViewController(animated: true)
@@ -186,7 +189,16 @@ class ViewControllerQuestions: UIViewController,UICollectionViewDataSource,UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if (indexAnswerSelected == -1){
+            let dictionaryAnswerSelected:[String:Any] = arrayAnswersData[indexPath.row]
+            if (dictionaryAnswerSelected["answersTriviaCorrectness"] as! String == "Correct Answer"){
+                intRightAnswer += 1
+                labelRightAnswer.text = "\(intRightAnswer) Right Answer"
+            }
+        }
         indexAnswerSelected = indexPath.row
+        buttonNext.isHidden = false
         collectionView.reloadData()
     }
     
@@ -197,10 +209,25 @@ class ViewControllerQuestions: UIViewController,UICollectionViewDataSource,UICol
         
     }
     
+    func showAlertEmptyData() {
+        //dismiss alert load data and show alert timeout
+        alertLoadingData.dismiss(animated: true, completion: {
+            let alertTimeOut:UIAlertController = self.customAlertView.createAlertWithDismissButton(stringTitle: "Kesalahan", stringMessage: "Kategori ini tidak memiliki pertanyaan", stringButtonTitle: "OK")
+            self.present(alertTimeOut, animated: true, completion: nil)
+        })
+    }
+    
     func showAlertTimeOut() {
         //dismiss alert load data and show alert timeout
         alertLoadingData.dismiss(animated: true, completion: {
             let alertTimeOut:UIAlertController = self.customAlertView.createAlertWithDismissButton(stringTitle: "Kesalahan", stringMessage: "tidak dapat mengakses server", stringButtonTitle: "OK")
+            self.present(alertTimeOut, animated: true, completion: nil)
+        })
+    }
+    
+    func showAlertNotConnectedToInternet(){
+        alertLoadingData.dismiss(animated: true, completion: {
+            let alertTimeOut:UIAlertController = self.customAlertView.createAlertWithDismissButton(stringTitle: "Kesalahan", stringMessage: "Not Connected To Internet", stringButtonTitle: "OK")
             self.present(alertTimeOut, animated: true, completion: nil)
         })
     }

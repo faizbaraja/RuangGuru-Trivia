@@ -11,7 +11,9 @@ import CoreData
 
 protocol ControllerQuestionsDelegate {
     func dataLoadAndSaveCompleted()
+    func showAlertEmptyData()
     func showAlertTimeOut()
+    func showAlertNotConnectedToInternet()
 }
 
 class ControllerQuestions: NSObject,WebServiceReturnDelegate{
@@ -64,41 +66,41 @@ class ControllerQuestions: NSObject,WebServiceReturnDelegate{
     }
     
     func saveQuestionAndAnswersTriviaToDatabase(dictDataQuestionAnswer:[String:Any]){
-            let dictionaryData:[String:Any] = dictDataQuestionAnswer
-            let stringCategoryID:Int = self.getDataState()["categoryID"] as! Int
-            let arrayDataResult:[[String:Any]] = dictionaryData["results"] as! [[String:Any]]
-        
-            for (index, _) in arrayDataResult.enumerated(){
-                let intMaxQuestionID:Int = self.modelEntityQuestions.fetchMaxQuestionID()
-                var dictDataQuestions:[String:Any] = [:]
-                var dictDataAnswer:[String:Any] = [:]
-                let stringQuestion = arrayDataResult[index]["question"] as! String
-                let stringCorrectAnswer = arrayDataResult[index]["correct_answer"] as! String
-                let arrayDataIncorrectAnswer:[Any] = arrayDataResult[index]["incorrect_answers"] as! [Any]
-                
-                dictDataQuestions["categoryTriviaID"] = stringCategoryID
-                dictDataQuestions["triviaQuestionText"] = stringQuestion
-                dictDataQuestions["triviaQuestionCorrectAnswer"] = stringCorrectAnswer
-                dictDataQuestions["triviaQuestionID"] = intMaxQuestionID
-                //save question
-                //print(stringQuestion)
-                self.modelEntityQuestions.saveQuestionData(dictquestionData: dictDataQuestions)
-                
-                dictDataAnswer["answersTriviaText"] = stringCorrectAnswer
-                dictDataAnswer["answersTriviaCorrectness"] = "Correct Answer"
+        let dictionaryData:[String:Any] = dictDataQuestionAnswer
+        let stringCategoryID:Int = self.getDataState()["categoryID"] as! Int
+        let arrayDataResult:[[String:Any]] = dictionaryData["results"] as! [[String:Any]]
+    
+        for (index, _) in arrayDataResult.enumerated(){
+            let intMaxQuestionID:Int = self.modelEntityQuestions.fetchMaxQuestionID()
+            var dictDataQuestions:[String:Any] = [:]
+            var dictDataAnswer:[String:Any] = [:]
+            let stringQuestion = arrayDataResult[index]["question"] as! String
+            let stringCorrectAnswer = arrayDataResult[index]["correct_answer"] as! String
+            let arrayDataIncorrectAnswer:[Any] = arrayDataResult[index]["incorrect_answers"] as! [Any]
+            
+            dictDataQuestions["categoryTriviaID"] = stringCategoryID
+            dictDataQuestions["triviaQuestionText"] = dataConverter.decodeHTMLString(stringHTML: stringQuestion)
+            dictDataQuestions["triviaQuestionCorrectAnswer"] = stringCorrectAnswer
+            dictDataQuestions["triviaQuestionID"] = intMaxQuestionID
+            //save question
+            //print(stringQuestion)
+            self.modelEntityQuestions.saveQuestionData(dictquestionData: dictDataQuestions)
+            
+            dictDataAnswer["answersTriviaText"] = dataConverter.decodeHTMLString(stringHTML: stringCorrectAnswer)
+            dictDataAnswer["answersTriviaCorrectness"] = "Correct Answer"
+            dictDataAnswer["questionTriviaID"] = intMaxQuestionID
+            //savethecorrectanswer
+            self.modelEntityAnswers.saveAnswerData(dictanswerData: dictDataAnswer)
+            
+            for (index, _) in arrayDataIncorrectAnswer.enumerated(){
+                let stringInCorrectAnswer = arrayDataIncorrectAnswer[index]
+                dictDataAnswer["answersTriviaText"] = dataConverter.decodeHTMLString(stringHTML: stringInCorrectAnswer as! String)
+                dictDataAnswer["answersTriviaCorrectness"] = "Incorrect Answer"
                 dictDataAnswer["questionTriviaID"] = intMaxQuestionID
-                //savethecorrectanswer
+                //save incorrect answer
                 self.modelEntityAnswers.saveAnswerData(dictanswerData: dictDataAnswer)
-                
-                for (index, _) in arrayDataIncorrectAnswer.enumerated(){
-                    let stringInCorrectAnswer = arrayDataIncorrectAnswer[index]
-                    dictDataAnswer["answersTriviaText"] = stringInCorrectAnswer
-                    dictDataAnswer["answersTriviaCorrectness"] = "Incorrect Answer"
-                    dictDataAnswer["questionTriviaID"] = intMaxQuestionID
-                    //save incorrect answer
-                    self.modelEntityAnswers.saveAnswerData(dictanswerData: dictDataAnswer)
-                }
             }
+        }
         delegate?.dataLoadAndSaveCompleted()
     }
     
@@ -108,7 +110,7 @@ class ControllerQuestions: NSObject,WebServiceReturnDelegate{
             self.saveQuestionAndAnswersTriviaToDatabase(dictDataQuestionAnswer: dictionaryData)
         }
         else{
-            delegate?.dataLoadAndSaveCompleted()
+            delegate?.showAlertEmptyData()
         }
     }
     
@@ -116,4 +118,7 @@ class ControllerQuestions: NSObject,WebServiceReturnDelegate{
         delegate?.showAlertTimeOut()
     }
     
+    func deviceNotConnectedToInternet(){
+        delegate?.showAlertNotConnectedToInternet()
+    }
 }

@@ -10,6 +10,7 @@ import UIKit
 protocol WebServiceReturnDelegate {
     func jsonData(_ dataFromServer:Any)
     func serverReachedTimeOut()
+    func deviceNotConnectedToInternet()
 }
 
 class ModelWebServiceCall: NSObject,URLSessionDelegate {
@@ -28,10 +29,16 @@ class ModelWebServiceCall: NSObject,URLSessionDelegate {
             let sessionAPI = URLSession(configuration: urlConfig, delegate: self, delegateQueue: nil)
             _ = sessionAPI.dataTask(with: request) { (data, response, error) in
                 if error != nil {
-                    print(error!.localizedDescription)
-                    DispatchQueue.main.async{
-                        self.delegate?.serverReachedTimeOut()
+                    if let e = error as? URLError, e.code == .notConnectedToInternet {
+                        //Not connected to internet
+                        self.delegate?.deviceNotConnectedToInternet()
                     }
+                    else{
+                        DispatchQueue.main.async{
+                            self.delegate?.serverReachedTimeOut()
+                        }
+                    }
+                    print(error!.localizedDescription)
                 }
                 else{
                     if let dataReturn = data {
