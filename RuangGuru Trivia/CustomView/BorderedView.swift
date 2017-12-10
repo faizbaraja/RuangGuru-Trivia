@@ -21,6 +21,6 @@ class BorderedView: UIView {
         let borderColor = UIColor.black
         self.layer.borderColor = borderColor.cgColor
         self.layer.borderWidth = 1.0
-        self.layer.cornerRadius = self.frame.size.width / 6
+        self.layer.cornerRadius = 20
     }
 }
