@@ -1,0 +1,76 @@
+commit 82074c4cb90715cd66160ea0056885565a7b4f0b (HEAD -> master, origin/master, origin/HEAD)
+Author: Faiz Baraja <faiz.baraja89@gmail.com>
+Date:   Mon Dec 11 10:07:40 2017 +0700
+
+    commit :
+    1. increase time for timeoutIntervalForRequest
+    2. increase time for timeoutIntervalForResource
+
+commit 99f235194665b4312f473fe2e693acc0c4041a9c
+Author: Faiz Umar Baraja <faiz@Faizs-MacBook-Pro.local>
+Date:   Mon Dec 11 07:06:49 2017 +0700
+
+    commit :
+    1. implement cache invalidation strategy
+
+commit 8e3a33de873baa37caaaded9bd63d0521d0e5647
+Author: Faiz Umar Baraja <faiz@Faizs-MacBook-Pro.local>
+Date:   Mon Dec 11 06:41:52 2017 +0700
+
+    Commit :
+    1. Bezel adjustment for larger UI
+    2. set aspect fill  for category background
+
+commit bf10189a2158fe475286189b175e2cbdd7ab54ae
+Author: Faiz Umar Baraja <faiz@Faizs-MacBook-Pro.local>
+Date:   Mon Dec 11 06:19:00 2017 +0700
+
+    Commit :
+    1. Restructure project structure
+    2. Adjust bezel for outer and inner border in answer
+
+commit 5bec55de33c780ab7072dd545312210351c9eab1
+Author: Faiz Umar Baraja <faiz@Faizs-MacBook-Pro.local>
+Date:   Mon Dec 11 05:56:33 2017 +0700
+
+    Commit :
+    1. fix layout for long label in answer options
+
+commit d386f7b96e5b1de71d956804192dd656da0d02ea
+Author: Faiz Umar Baraja <faiz@Faizs-MacBook-Pro.local>
+Date:   Sun Dec 10 19:27:07 2017 +0700
+
+    Commit :
+    1. implement string html decode
+
+commit ad50f37609790f943b492a3a7b497113ba3b1407
+Author: Faiz Umar Baraja <faiz@Faizs-MacBook-Pro.local>
+Date:   Sun Dec 10 16:57:08 2017 +0700
+
+    Commit:
+    1. Show game sequantially
+    2. Implement coloring for correct and incorrect answers
+    2. Implement coloring for correct and incorrect answers
+    3. Show current questions position
+
+commit 7c47871b6f5f9a6c48116789421883805b270a68
+Author: Faiz Umar Baraja <faiz@Faizs-MacBook-Pro.local>
+Date:   Sun Dec 10 13:13:28 2017 +0700
+
+    Commit :
+    1. add image asset
+    2. Implement save question data based on category
+
+commit b13a840bb69b956d80e1bfd2e51fdd6175951d75
+Author: Faiz Umar Baraja <faiz@Faizs-MacBook-Pro.local>
+Date:   Sat Dec 9 22:57:05 2017 +0700
+
+    Commit:
+    1. Implement data for trivia category
+
+commit 2c796284e557a91bd4aa8870afd7ae14395da493
+Author: Faiz Umar Baraja <faiz@Faizs-MacBook-Pro.local>
+Date:   Sat Dec 9 15:56:03 2017 +0700
+
+    Commit :
+    1. Setup project
