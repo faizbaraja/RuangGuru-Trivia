@@ -107,6 +107,10 @@ class ControllerQuestions: NSObject,WebServiceReturnDelegate{
     func jsonData(_ dataFromServer:Any){
         let dictionaryData:[String:Any] = dataFromServer as! [String:Any]
         if (dictionaryData["response_code"] as! Int == 0){
+            //implement cache invalidation
+            modelEntityQuestions.deleteAllQuestionTriviaRecords()
+            modelEntityAnswers.deleteAllAnswerTriviaRecords()
+            
             self.saveQuestionAndAnswersTriviaToDatabase(dictDataQuestionAnswer: dictionaryData)
         }
         else{
