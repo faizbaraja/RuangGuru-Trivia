@@ -24,8 +24,8 @@ class ModelWebServiceCall: NSObject,URLSessionDelegate {
             var request = URLRequest(url: usableUrl)
             request.httpMethod = stringHTTPMethod
             let urlConfig = URLSessionConfiguration.default
-            urlConfig.timeoutIntervalForRequest = 10
-            urlConfig.timeoutIntervalForResource = 10
+            urlConfig.timeoutIntervalForRequest = 30
+            urlConfig.timeoutIntervalForResource = 30
             let sessionAPI = URLSession(configuration: urlConfig, delegate: self, delegateQueue: nil)
             _ = sessionAPI.dataTask(with: request) { (data, response, error) in
                 if error != nil {
